@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Raúl Real Estate — Bienes Raíces en Puerto Rico</title>
+<meta name="description" content="Alex Raúl, broker de bienes raíces en Puerto Rico. Ventas rápidas, el mejor precio y comunicación constante. Lic. #23378. Isla Verde, San Juan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0e2438; --navy2:#13314c; --gold:#c8a558; --gold-d:#a9863c;
+  --ink:#1a2330; --muted:#6b7785; --bg:#f7f5f1; --white:#fff; --line:#e7e2d8;
+  --shadow:0 18px 50px rgba(14,36,56,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
+h1,h2,h3,.serif{font-family:'Playfair Display',serif}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#1a1405;font-weight:600;padding:14px 26px;border-radius:50px;border:none;cursor:pointer;transition:.25s;font-size:15px}
+.btn:hover{background:var(--gold-d);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45)}
+.btn.ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.eyebrow{color:var(--gold-d);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:13px;margin-bottom:14px}
+section{padding:96px 0}
+.center{text-align:center}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s}
+header.scrolled{background:#0e2438;box-shadow:0 6px 24px rgba(0,0,0,.18)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;max-width:1180px;margin:0 auto}
+.logo{font-family:'Playfair Display',serif;font-weight:800;font-size:23px;color:#fff;letter-spacing:.5px}
+.logo span{color:var(--gold)}
+.navlinks{display:flex;gap:34px;align-items:center}
+.navlinks a{color:#f3eee4;font-weight:500;font-size:15px;transition:.2s}
+.navlinks a:hover{color:var(--gold)}
+.navtel{background:var(--gold);color:#1a1405;padding:10px 20px;border-radius:50px;font-weight:600}
+.navtel:hover{background:#fff;color:var(--navy)!important}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2.5px;background:#fff;border-radius:2px}
+.menu-close{display:none}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;color:#fff;
+  background:linear-gradient(rgba(8,22,36,.72),rgba(8,22,36,.78)),
+  url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1920&q=80') center/cover fixed}
+.hero-inner{max-width:780px}
+.hero h1{font-size:clamp(38px,6vw,68px);line-height:1.08;font-weight:800;margin-bottom:22px}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero p{font-size:19px;color:#e6e1d6;max-width:600px;margin-bottom:34px;font-weight:300}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+.scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:#cdbf9a;font-size:13px;letter-spacing:.2em}
+
+/* STATS BAR */
+.stats{background:var(--navy);color:#fff;padding:46px 0}
+.stats .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat .num{font-family:'Playfair Display',serif;font-size:42px;font-weight:800;color:var(--gold)}
+.stat .lbl{font-size:14px;color:#c3cdda;letter-spacing:.04em;margin-top:4px}
+
+/* ABOUT */
+.about .grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about img{border-radius:16px;box-shadow:var(--shadow);aspect-ratio:1/1;object-fit:cover;object-position:center;background:#eef1f4}
+.about h2{font-size:clamp(30px,4vw,44px);line-height:1.15;margin-bottom:20px}
+.about p{color:var(--muted);margin-bottom:16px;font-size:16.5px}
+.sig{margin-top:24px;font-family:'Playfair Display',serif;font-size:30px;color:var(--navy)}
+.lic{display:inline-block;margin-top:6px;background:#eef1ec;color:var(--navy2);padding:6px 16px;border-radius:50px;font-size:13px;font-weight:600;letter-spacing:.03em}
+
+/* SERVICES */
+.services{background:var(--white)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:54px}
+.card{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:38px 30px;transition:.3s}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--gold)}
+.card .ico{width:56px;height:56px;border-radius:14px;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:20px}
+.card h3{font-size:21px;margin-bottom:10px}
+.card p{color:var(--muted);font-size:15px}
+
+/* WHY / PROCESS */
+.why{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff}
+.why .head h2{color:#fff}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:54px}
+.step{position:relative;padding:30px 22px;border:1px solid rgba(255,255,255,.13);border-radius:14px;background:rgba(255,255,255,.04)}
+.step .n{font-family:'Playfair Display',serif;font-size:34px;color:var(--gold);font-weight:800;margin-bottom:10px}
+.step h4{font-size:18px;margin-bottom:8px}
+.step p{color:#bcc7d4;font-size:14.5px}
+
+/* LISTINGS */
+.listings .head{margin-bottom:14px}
+.lst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:46px}
+.prop{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(14,36,56,.08);transition:.3s}
+.prop:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.prop .ph{height:220px;background-size:cover;background-position:center;position:relative}
+.prop .tag{position:absolute;top:14px;left:14px;background:var(--gold);color:#1a1405;font-weight:700;font-size:12px;padding:5px 13px;border-radius:50px;letter-spacing:.04em}
+.prop .body{padding:22px}
+.prop .price{font-family:'Playfair Display',serif;font-size:24px;font-weight:800;color:var(--navy)}
+.prop .addr{color:var(--muted);font-size:14.5px;margin:4px 0 14px}
+.prop .meta{display:flex;gap:18px;color:var(--ink);font-size:13.5px;border-top:1px solid var(--line);padding-top:14px}
+.prop .meta span{display:flex;align-items:center;gap:6px}
+.note{text-align:center;color:var(--muted);font-size:14px;margin-top:30px;font-style:italic}
+
+/* TESTIMONIALS */
+.testi{background:var(--white)}
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:50px}
+.quote{background:var(--bg);border-radius:16px;padding:34px 30px;border:1px solid var(--line)}
+.quote .stars{color:var(--gold);margin-bottom:14px;letter-spacing:3px}
+.quote p{font-size:16px;color:var(--ink);margin-bottom:18px}
+.quote .who{font-weight:700;color:var(--navy)}
+.quote .who small{display:block;color:var(--muted);font-weight:400}
+
+/* CTA / CONTACT */
+.contact{background:linear-gradient(135deg,var(--navy),#0a1c2e);color:#fff}
+.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.contact h2{font-size:clamp(30px,4vw,44px);margin-bottom:16px}
+.contact .lead{color:#c8d2dd;margin-bottom:30px;font-size:17px}
+.cinfo{display:flex;flex-direction:column;gap:18px;margin-top:8px}
+.cinfo a{display:flex;align-items:center;gap:14px;color:#eef2f6;font-size:16px}
+.cinfo .ci-ic{width:46px;height:46px;border-radius:12px;background:rgba(200,165,88,.16);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+form{background:rgba(255,255,255,.05);padding:34px;border-radius:18px;border:1px solid rgba(255,255,255,.1)}
+form label{display:block;font-size:13px;color:#bcc7d4;margin:14px 0 6px;font-weight:500}
+form input,form textarea,form select{width:100%;padding:13px 15px;border-radius:10px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;font-family:inherit;font-size:15px}
+form input::placeholder,form textarea::placeholder{color:#8c99a8}
+form input:focus,form textarea:focus,form select:focus{outline:none;border-color:var(--gold)}
+form button{width:100%;margin-top:22px;justify-content:center}
+.formnote{font-size:12.5px;color:#9fb0bf;margin-top:14px;text-align:center}
+
+/* FOOTER */
+footer{background:#08151f;color:#9fb0bf;padding:54px 0 30px}
+.fgrid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.08)}
+.fcol h4{color:#fff;font-family:'Playfair Display',serif;font-size:20px;margin-bottom:14px}
+.fcol a{display:block;color:#9fb0bf;margin-bottom:8px;transition:.2s}
+.fcol a:hover{color:var(--gold)}
+.social{display:flex;gap:12px;margin-top:6px}
+.social a{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;transition:.25s}
+.social a:hover{background:var(--gold);color:#1a1405}
+.copy{text-align:center;padding-top:26px;font-size:13.5px;color:#6c7d8c}
+
+/* WhatsApp float */
+.wa{position:fixed;bottom:24px;right:24px;z-index:60;width:60px;height:60px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.45);font-size:30px;transition:.25s}
+.wa:hover{transform:scale(1.08)}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+body.lock{overflow:hidden}
+
+@media(max-width:880px){
+  .navlinks{position:fixed;inset:0;width:100%;height:100vh;background:#0e2438;flex-direction:column;justify-content:center;align-items:center;gap:30px;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .3s,transform .3s,visibility .3s;padding:40px;z-index:100}
+  .navlinks.open{opacity:1;visibility:visible;transform:translateY(0)}
+  .navlinks a{font-size:22px}
+  .navlinks .navtel{font-size:20px;margin-top:8px}
+  .menu-close{display:block;position:absolute;top:26px;right:26px;font-size:34px;color:#fff;background:none;border:none;cursor:pointer;line-height:1}
+  .burger{display:flex}
+  .stats .grid{grid-template-columns:repeat(2,1fr);gap:34px}
+  .about .grid,.contact .grid{grid-template-columns:1fr;gap:38px}
+  .svc-grid,.lst-grid,.tg{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .hero{background-attachment:scroll}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <nav>
+    <a href="#top" class="logo">Alex<span>Raúl</span> · Real Estate</a>
+    <div class="navlinks" id="menu">
+      <button class="menu-close" onclick="closeMenu()" aria-label="Cerrar">&times;</button>
+      <a href="#about" onclick="closeMenu()">Sobre mí</a>
+      <a href="#services" onclick="closeMenu()">Servicios</a>
+      <a href="#why" onclick="closeMenu()">Proceso</a>
+      <a href="#listings" onclick="closeMenu()">Propiedades</a>
+      <a href="#contact" onclick="closeMenu()">Contacto</a>
+      <a href="tel:+19393089380" class="navtel">939-308-9380</a>
+    </div>
+    <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div class="eyebrow" style="color:var(--gold)">Bienes Raíces · Puerto Rico</div>
+    <h1>Vende o compra tu propiedad con <em>confianza y rapidez</em>.</h1>
+    <p>Soy Alex Raúl, broker licenciado en Puerto Rico. Te consigo el mejor precio con transparencia total y comunicación constante, de principio a fin.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn">Quiero vender / comprar →</a>
+      <a href="#listings" class="btn ghost">Ver propiedades</a>
+    </div>
+  </div>
+  <div class="scroll-cue">↓ DESLIZA</div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="wrap">
+    <div class="grid">
+      <div class="stat"><div class="num">$10M+</div><div class="lbl">En ventas cerradas</div></div>
+      <div class="stat"><div class="num">100%</div><div class="lbl">Transparencia</div></div>
+      <div class="stat"><div class="num">Lic.</div><div class="lbl">#23378 Certificado</div></div>
+      <div class="stat"><div class="num">PR</div><div class="lbl">Toda la isla</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="grid">
+      <img src="alex.jpg" alt="Alex Raúl, Realtor en Puerto Rico">
+      <div>
+        <div class="eyebrow">Sobre Alex Raúl</div>
+        <h2>Tu aliado en cada paso del proceso.</h2>
+        <p>Con más de <strong>$10 millones en volumen de ventas</strong>, me especializo en mover propiedades <strong>rápido y al mejor precio</strong>. Mi compromiso es simple: comunicación constante, cero sorpresas y un proceso que entiendas de principio a fin.</p>
+        <p>Ya sea que estés vendiendo tu hogar, comprando tu primera propiedad o invirtiendo en Puerto Rico, te acompaño con estrategia, datos reales del mercado y negociación firme a tu favor.</p>
+        <div class="sig">Alex Raúl</div>
+        <span class="lic">Broker Licenciado · Lic. #23378 · Isla Verde, San Juan</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="wrap center">
+    <div class="eyebrow">Servicios</div>
+    <h2 style="font-size:clamp(30px,4vw,44px)">Cómo te ayudo</h2>
+    <div class="svc-grid">
+      <div class="card">
+        <div class="ico">🏠</div>
+        <h3>Venta de propiedades</h3>
+        <p>Estrategia de precio, marketing profesional y exposición máxima pa' vender rápido y al mejor valor del mercado.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🔑</div>
+        <h3>Compra de hogar</h3>
+        <p>Te guío desde la pre-cualificación hasta el cierre. Encontramos la propiedad correcta y negociamos a tu favor.</p>
+      </div>
+      <div class="card">
+        <div class="ico">📈</div>
+        <h3>Inversión y rentas</h3>
+        <p>Asesoría pa' inversionistas: short-term rentals, multifamiliares y oportunidades con buen retorno en PR.</p>
+      </div>
+      <div class="card">
+        <div class="ico">💵</div>
+        <h3>Valoración gratis</h3>
+        <p>¿Cuánto vale tu propiedad hoy? Te doy un análisis de mercado (CMA) real y sin compromiso.</p>
+      </div>
+      <div class="card">
+        <div class="ico">📝</div>
+        <h3>Financiamiento</h3>
+        <p>Te conecto con prestamistas de confianza y te ayudo a entender tus opciones de hipoteca.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🤝</div>
+        <h3>Asesoría completa</h3>
+        <p>Permisos, documentos, tasación y cierre. Coordino todo el proceso pa' que tú no tengas que correr.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY / PROCESS -->
+<section class="why" id="why">
+  <div class="wrap center head">
+    <div class="eyebrow" style="color:var(--gold)">El Proceso</div>
+    <h2 style="font-size:clamp(30px,4vw,44px)">Simple, claro y a tu ritmo</h2>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h4>Conversamos</h4><p>Me cuentas tu meta — vender, comprar o invertir — y trazamos el plan.</p></div>
+      <div class="step"><div class="n">02</div><h4>Estrategia</h4><p>Precio correcto, marketing y datos del mercado pa' moverte rápido.</p></div>
+      <div class="step"><div class="n">03</div><h4>Negociación</h4><p>Negocio firme a tu favor y te mantengo informado en cada paso.</p></div>
+      <div class="step"><div class="n">04</div><h4>Cierre</h4><p>Coordino documentos, tasación y permisos hasta entregarte las llaves.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LISTINGS -->
+<section class="listings" id="listings">
+  <div class="wrap center head">
+    <div class="eyebrow">Propiedades</div>
+    <h2 style="font-size:clamp(30px,4vw,44px)">Listados destacados</h2>
+  </div>
+  <div class="wrap">
+    <div class="lst-grid" id="lstGrid"></div>
+    <p class="note">* Inventario de muestra. Escríbeme pa' ver las propiedades actualizadas o pa' listar la tuya.</p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi" id="testi">
+  <div class="wrap center">
+    <div class="eyebrow">Testimonios</div>
+    <h2 style="font-size:clamp(30px,4vw,44px)">Lo que dicen mis clientes</h2>
+    <div class="tg">
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"Vendió mi casa en menos de un mes y por encima de lo que esperaba. Siempre disponible y honesto."</p>
+        <div class="who">María C.<small>Carolina, PR</small></div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"Compré mi primer hogar con Alex. Me explicó cada paso y negoció un precialazo. 100% recomendado."</p>
+        <div class="who">Javier R.<small>Bayamón, PR</small></div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"Profesional, rápido y transparente. Me ayudó a invertir en una propiedad de renta. Excelente servicio."</p>
+        <div class="who">Lourdes M.<small>San Juan, PR</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow" style="color:var(--gold)">Hablemos</div>
+        <h2>¿Listo pa' dar el próximo paso?</h2>
+        <p class="lead">Escríbeme y conversamos sin compromiso. Te respondo rápido — sea pa' vender, comprar o invertir en Puerto Rico.</p>
+        <div class="cinfo">
+          <a href="tel:+19393089380"><span class="ci-ic">📞</span> 939-308-9380</a>
+          <a href="mailto:info@alexraulrealestate.com"><span class="ci-ic">✉️</span> info@alexraulrealestate.com</a>
+          <a href="https://wa.me/19393089380" target="_blank"><span class="ci-ic">💬</span> WhatsApp directo</a>
+          <a href="#"><span class="ci-ic">📍</span> Isla Verde, San Juan · Toda la isla</a>
+        </div>
+      </div>
+      <form onsubmit="return sendForm(event)">
+        <label>Nombre</label>
+        <input type="text" id="f-name" placeholder="Tu nombre" required>
+        <label>Teléfono / WhatsApp</label>
+        <input type="tel" id="f-tel" placeholder="787-000-0000" required>
+        <label>¿Qué necesitas?</label>
+        <select id="f-type">
+          <option>Quiero vender mi propiedad</option>
+          <option>Quiero comprar</option>
+          <option>Inversión / rentas</option>
+          <option>Valoración gratis</option>
+          <option>Otra cosa</option>
+        </select>
+        <label>Mensaje</label>
+        <textarea id="f-msg" rows="3" placeholder="Cuéntame un poco..."></textarea>
+        <button type="submit" class="btn">Enviar por WhatsApp 💬</button>
+        <p class="formnote">Al enviar se abre WhatsApp con tu mensaje listo pa' Alex.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fcol" style="max-width:300px">
+        <h4>Alex Raúl · Real Estate</h4>
+        <p style="color:#9fb0bf">Broker licenciado en Puerto Rico. Ventas rápidas, mejor precio y comunicación constante. Lic. #23378.</p>
+        <div class="social">
+          <a href="https://www.instagram.com/alexraulrealestate" target="_blank" title="Instagram">📷</a>
+          <a href="https://www.facebook.com/alexraulrealestate" target="_blank" title="Facebook">f</a>
+          <a href="https://wa.me/19393089380" target="_blank" title="WhatsApp">💬</a>
+        </div>
+      </div>
+      <div class="fcol">
+        <h4>Enlaces</h4>
+        <a href="#about">Sobre mí</a>
+        <a href="#services">Servicios</a>
+        <a href="#listings">Propiedades</a>
+        <a href="#contact">Contacto</a>
+      </div>
+      <div class="fcol">
+        <h4>Contacto</h4>
+        <a href="tel:+19393089380">939-308-9380</a>
+        <a href="mailto:info@alexraulrealestate.com">info@alexraulrealestate.com</a>
+        <a href="#">Isla Verde, San Juan, PR</a>
+      </div>
+    </div>
+    <div class="copy">© <span id="yr"></span> Alex Raúl Real Estate · Todos los derechos reservados · Lic. #23378</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/19393089380" class="wa" target="_blank" title="WhatsApp">💬</a>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>{hdr.classList.toggle('scrolled',scrollY>40)});
+const menu=document.getElementById('menu');
+function toggleMenu(){const o=menu.classList.toggle('open');document.body.classList.toggle('lock',o)}
+function closeMenu(){menu.classList.remove('open');document.body.classList.remove('lock')}
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* ---- Propiedades dinámicas (editar este array pa' actualizar) ---- */
+const PROPS=[
+ {img:'casa1.jpg',tag:'EN VENTA',price:'$385,000',addr:'Casa moderna · Dorado, PR',beds:3,baths:2,sqft:'1,850'},
+ {img:'casa2.jpg',tag:'EN VENTA',price:'$249,900',addr:'Apartamento c/ vista al mar · Isla Verde',beds:2,baths:2,sqft:'1,100'},
+ {img:'casa3.jpg',tag:'INVERSIÓN',price:'$520,000',addr:'Multifamiliar 3 unidades · San Juan',beds:6,baths:3,sqft:'3,200'}
+];
+const grid=document.getElementById('lstGrid');
+grid.innerHTML=PROPS.map(p=>`
+  <div class="prop reveal">
+    <div class="ph" style="background-image:url('${p.img}')"><span class="tag">${p.tag}</span></div>
+    <div class="body">
+      <div class="price">${p.price}</div>
+      <div class="addr">${p.addr}</div>
+      <div class="meta"><span>🛏 ${p.beds} hab</span><span>🛁 ${p.baths} baños</span><span>📐 ${p.sqft} ft²</span></div>
+    </div>
+  </div>`).join('');
+
+/* ---- Scroll reveal dinámico ---- */
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.card,.step,.prop,.quote,.about img,.stat').forEach(el=>{el.classList.add('reveal');io.observe(el)});
+
+/* close menu on link / escape */
+addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+
+function sendForm(e){
+  e.preventDefault();
+  const n=document.getElementById('f-name').value;
+  const t=document.getElementById('f-tel').value;
+  const ty=document.getElementById('f-type').value;
+  const m=document.getElementById('f-msg').value;
+  const txt=`Hola Alex! Soy ${n} (${t}). Interés: ${ty}. ${m}`;
+  window.open('https://wa.me/19393089380?text='+encodeURIComponent(txt),'_blank');
+  return false;
+}
+</script>
+</body>
+</html>
